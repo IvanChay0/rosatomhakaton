@@ -246,18 +246,13 @@ def chat_with_data():
 
         # Преобразуем результат в удобный формат
 
+       # Преобразуем результат в удобный формат (с заменой NaN)
         result_data = {
-
             'sql_query': sql_query,
-
-            'data': result_df.to_dict('records') if not result_df.empty else [],
-
+            'data': json.loads(result_df.fillna('').to_json(orient='records')) if not result_df.empty else [],
             'columns': list(result_df.columns) if not result_df.empty else [],
-
             'row_count': len(result_df)
-
         }
-
         
 
         # Генерируем текстовый анализ
@@ -639,19 +634,12 @@ def execute_sql():
         
 
         return jsonify({
-
-            'success': True,
-
-            'data': result_df.to_dict('records'),
-
-            'columns': list(result_df.columns),
-
-            'row_count': len(result_df),
-
-            'sql_query': sql_query,
-
-            'timestamp': datetime.now().isoformat()
-
+        'success': True,
+        'data': json.loads(result_df.fillna('').to_json(orient='records')),
+        'columns': list(result_df.columns),
+        'row_count': len(result_df),
+        'sql_query': sql_query,
+        'timestamp': datetime.now().isoformat()
         })
 
         

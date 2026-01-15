@@ -47,6 +47,7 @@ def create_fallback_sql_generator():
         def generate_sql(self, natural_language_query, schema_info):
             query = natural_language_query.lower()
             
+            # Топ-5 товаров - БЕЗ фильтра по дате!
             if ('топ' in query or 'лучш' in query) and ('товар' in query or 'продукт' in query or 'продаж' in query):
                 return """
                     SELECT 
@@ -55,15 +56,92 @@ def create_fallback_sql_generator():
                         SUM(quantity) as total_quantity,
                         COUNT(*) as transactions
                     FROM production 
-                    WHERE date >= date('now', '-1 month')
-                        AND revenue IS NOT NULL
+                    WHERE revenue IS NOT NULL
+                        AND revenue > 0
                     GROUP BY product_name
                     ORDER BY total_revenue DESC
                     LIMIT 5
                 """
-            # ... остальные условия как в файле выше
+            
+            # Сотрудники по отделам
+            elif ('сотрудник' in query or 'работник' in query) and ('отдел' in query or 'департамент' in query):
+                return """
+                    SELECT 
+                        department,
+                        COUNT(*) as employee_count
+                    FROM employees 
+                    WHERE department IS NOT NULL
+                    GROUP BY department
+                    ORDER BY employee_count DESC
+                """
+            
+            # Динамика продаж - УПРОЩЕННАЯ версия без date() функций
+            elif ('динамик' in query or 'трен' in query) and ('продаж' in query or 'выручк' in query):
+                return """
+                    -- Упрощенная версия: группировка по месяцам
+                    SELECT 
+                        substr(date, 1, 7) as month,  -- Берем только ГГГГ-ММ
+                        SUM(revenue) as total_revenue
+                    FROM production 
+                    WHERE revenue IS NOT NULL
+                        AND date IS NOT NULL
+                        AND date LIKE '____-__-__'  -- Проверяем формат даты
+                    GROUP BY substr(date, 1, 7)
+                    ORDER BY month DESC
+                    LIMIT 12  -- Последние 12 месяцев
+                """
+            
+            # Общая выручка по проектам
+            elif ('выручк' in query or 'доход' in query or 'продаж' in query) and ('проект' in query):
+                return """
+                    SELECT 
+                        p.project_name,
+                        COALESCE(SUM(pr.revenue), 0) as total_revenue,
+                        p.budget,
+                        p.status
+                    FROM projects p
+                    LEFT JOIN production pr ON p.project_id = pr.project_id
+                    WHERE p.project_name IS NOT NULL
+                    GROUP BY p.project_id, p.project_name, p.budget, p.status
+                    ORDER BY total_revenue DESC
+                    LIMIT 10
+                """
+            
+            # Общая выручка
+            elif 'общая выручка' in query or 'общий доход' in query:
+                return """
+                    SELECT 
+                        'Общая выручка' as metric,
+                        SUM(revenue) as value,
+                        'руб.' as unit
+                    FROM production 
+                    WHERE revenue IS NOT NULL
+                """
+            
+            # Динамика продаж за последний год (альтернатива)
+            elif 'последний год' in query and ('продаж' in query or 'выручк' in query):
+                return """
+                    -- Берем последние 12 месяцев по наличию данных
+                    SELECT 
+                        substr(date, 1, 7) as month,
+                        SUM(revenue) as total_revenue,
+                        COUNT(*) as transactions
+                    FROM production 
+                    WHERE revenue IS NOT NULL
+                        AND date IS NOT NULL
+                    GROUP BY substr(date, 1, 7)
+                    ORDER BY month DESC
+                    LIMIT 12
+                """
+            
+            # Fallback - показываем примеры данных
             else:
-                return "SELECT 'Пожалуйста, уточните запрос' as message"
+                return """
+                    SELECT 'Примеры данных:' as info,
+                           (SELECT product_name FROM production WHERE revenue IS NOT NULL LIMIT 1) as sample_product,
+                           (SELECT SUM(revenue) FROM production WHERE revenue IS NOT NULL) as total_revenue_sample,
+                           (SELECT COUNT(*) FROM employees) as total_employees
+                """
     
     return SimpleSQLGenerator()
 

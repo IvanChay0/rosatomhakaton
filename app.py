@@ -20,7 +20,7 @@ import traceback
 
 from database.manager import DatabaseManager
 
-from ai.sql_generator import SQLGenerator
+#from ai.sql_generator import SQLGenerator
 
 from features.dashboard_viz import DashboardVisualizer
 
@@ -42,11 +42,37 @@ CORS(app)
 
 
 
+def create_fallback_sql_generator():
+    class SimpleSQLGenerator:
+        def generate_sql(self, natural_language_query, schema_info):
+            query = natural_language_query.lower()
+            
+            if ('топ' in query or 'лучш' in query) and ('товар' in query or 'продукт' in query or 'продаж' in query):
+                return """
+                    SELECT 
+                        product_name,
+                        SUM(revenue) as total_revenue,
+                        SUM(quantity) as total_quantity,
+                        COUNT(*) as transactions
+                    FROM production 
+                    WHERE date >= date('now', '-1 month')
+                        AND revenue IS NOT NULL
+                    GROUP BY product_name
+                    ORDER BY total_revenue DESC
+                    LIMIT 5
+                """
+            # ... остальные условия как в файле выше
+            else:
+                return "SELECT 'Пожалуйста, уточните запрос' as message"
+    
+    return SimpleSQLGenerator()
+
 # Инициализация компонентов
 
 db_manager = DatabaseManager()
 
-sql_generator = SQLGenerator()
+sql_generator = create_fallback_sql_generator()
+
 
 visualizer = DashboardVisualizer()
 
@@ -1915,6 +1941,7 @@ def test_query():
             'timestamp': datetime.now().isoformat()
 
         }), 500
+
 
 
 

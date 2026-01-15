@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Дашборд - Rosatom BI System</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header class="header">
+
+            <div class="logo">
+
+                <h1>Rosatom BI Dashboard</h1>
+
+                <p>Интерактивный дашборд для анализа данных</p>
+
+            </div>
+
+            <nav class="nav">
+
+                <a href="/" class="nav-link">Главная</a>
+
+                <a href="/dashboard" class="nav-link active">Дашборд</a>
+
+                <a href="/reports" class="nav-link">Отчеты</a>
+
+            </nav>
+
+        </header>
+
+
+
+        <main class="dashboard-content">
+
+            
+
+
+
+            
+
+
+
+            <!-- Виджеты дашборда -->
+
+            <div class="dashboard-widgets">
+
+                <!-- KPI панель -->
+
+                <div class="widget kpi-panel">
+
+                    <div class="widget-header">
+
+                        <h4>Ключевые показатели</h4>
+
+                    </div>
+
+                    <div class="kpi-grid">
+
+                        <div class="kpi-card">
+
+                            <div class="kpi-value" id="totalEmployees">0</div>
+
+                            <div class="kpi-label">Сотрудников</div>
+
+                        </div>
+
+                        <div class="kpi-card">
+
+                            <div class="kpi-value" id="activeProjects">0</div>
+
+                            <div class="kpi-label">Активных проектов</div>
+
+                        </div>
+
+                        <div class="kpi-card">
+
+                            <div class="kpi-value" id="totalRevenue">0 ₽</div>
+
+                            <div class="kpi-label">Общая выручка</div>
+
+                        </div>
+
+                        <div class="kpi-card">
+
+                            <div class="kpi-value" id="safetyScore">100%</div>
+
+                            <div class="kpi-label">Безопасность</div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Графики -->
+
+                <div class="widget-row">
+
+                    <div class="widget chart-widget">
+
+                        <div class="widget-header">
+
+                            <h4>Распределение сотрудников по отделам</h4>
+
+                        </div>
+
+                        <div id="departmentChart" class="chart-container"></div>
+
+                    </div>
+
+                    
+
+                    <div class="widget chart-widget">
+
+                        <div class="widget-header">
+
+                            <h4>Динамика продаж</h4>
+
+                        </div>
+
+                        <div id="salesChart" class="chart-container"></div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="widget-row">
+
+                    <div class="widget chart-widget">
+
+                        <div class="widget-header">
+
+                            <h4>Статус проектов</h4>
+
+                        </div>
+
+                        <div id="projectStatusChart" class="chart-container"></div>
+
+                    </div>
+
+                    
+
+                    <div class="widget chart-widget">
+
+                        <div class="widget-header">
+
+                            <h4>Топ-5 товаров по продажам</h4>
+
+                        </div>
+
+                        <div id="topProductsChart" class="chart-container"></div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Таблицы -->
+
+                <div class="widget-row">
+
+                    <div class="widget table-widget">
+
+                        <div class="widget-header">
+
+                            <h4>Последние инциденты безопасности</h4>
+
+                            <button class="btn btn-small" onclick="refreshSafetyIncidents()">Обновить</button>
+
+                        </div>
+
+                        <div id="safetyTable" class="table-container">
+
+                            <!-- Таблица будет загружена через JS -->
+
+                        </div>
+
+                    </div>
+
+                    
+
+                    <div class="widget table-widget">
+
+                        <div class="widget-header">
+
+                            <h4>Топ сотрудников по эффективности</h4>
+
+                            <button class="btn btn-small" onclick="refreshTopEmployees()">Обновить</button>
+
+                        </div>
+
+                        <div id="employeesTable" class="table-container">
+
+                            <!-- Таблица будет загружена через JS -->
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- AI аналитика -->
+
+                <div class="widget ai-widget">
+
+                    <div class="widget-header">
+
+                        <h4>🤖 AI Аналитика</h4>
+
+                    </div>
+
+                    <div class="ai-content">
+
+                        <div id="aiInsights">
+
+                            <p>Загрузка аналитических инсайтов...</p>
+
+                        </div>
+
+                        <button class="btn btn-primary" onclick="generateAIInsights()">
+
+                            Сгенерировать новые инсайты
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </main>
+
+
+
+        <footer class="footer">
+
+            <p>© 2024 Rosatom BI Dashboard. Реальное время обновления данных.</p>
+
+        </footer>
+
+    </div>
+
+
+
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+
+</body>
+
+</html>

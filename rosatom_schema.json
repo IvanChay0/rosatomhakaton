@@ -1,0 +1,1708 @@
+{
+  "tables": {
+    "customers": {
+      "columns": [
+        {
+          "name": "customer_id",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": true
+        },
+        {
+          "name": "customer_name",
+          "type": "TEXT",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "customer_type",
+          "type": "TEXT",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "industry",
+          "type": "TEXT",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "country",
+          "type": "TEXT",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "contact_person",
+          "type": "TEXT",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "phone",
+          "type": "TEXT",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "email",
+          "type": "TEXT",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "contract_value",
+          "type": "REAL",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "contract_start_date",
+          "type": "DATE",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "contract_end_date",
+          "type": "DATE",
+          "nullable": true,
+          "primary_key": false
+        }
+      ],
+      "primary_keys": [
+        "customer_id"
+      ],
+      "foreign_keys": [],
+      "sample_data": [
+        {
+          "customer_id": "1",
+          "customer_name": "Клиент 1",
+          "customer_type": "Медицинский",
+          "industry": "Промышленность",
+          "country": "Индия",
+          "contact_person": "Менеджер 1",
+          "phone": "+79793745890",
+          "email": "customer1@example.com",
+          "contract_value": "155288603.0",
+          "contract_start_date": "2019-07-07",
+          "contract_end_date": "2026-03-21"
+        },
+        {
+          "customer_id": "2",
+          "customer_name": "Клиент 2",
+          "customer_type": "Медицинский",
+          "industry": "Энергетика",
+          "country": "Индия",
+          "contact_person": "Менеджер 2",
+          "phone": "+79811911416",
+          "email": "customer2@example.com",
+          "contract_value": "124468616.0",
+          "contract_start_date": "2021-10-29",
+          "contract_end_date": "2026-10-26"
+        },
+        {
+          "customer_id": "3",
+          "customer_name": "Клиент 3",
+          "customer_type": "Коммерческий",
+          "industry": "Промышленность",
+          "country": "Индия",
+          "contact_person": "Менеджер 3",
+          "phone": "+79036110669",
+          "email": "customer3@example.com",
+          "contract_value": "175116978.0",
+          "contract_start_date": "2019-12-01",
+          "contract_end_date": "2027-06-13"
+        }
+      ]
+    },
+    "employees": {
+      "columns": [
+        {
+          "name": "employee_id",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": true
+        },
+        {
+          "name": "first_name",
+          "type": "TEXT",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "last_name",
+          "type": "TEXT",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "department",
+          "type": "TEXT",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "position",
+          "type": "TEXT",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "hire_date",
+          "type": "DATE",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "salary",
+          "type": "REAL",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "project_id",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "performance_score",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "experience_years",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "education_level",
+          "type": "TEXT",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "location_id",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "manager_id",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "skills",
+          "type": "TEXT",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "email",
+          "type": "TEXT",
+          "nullable": true,
+          "primary_key": false
+        }
+      ],
+      "primary_keys": [
+        "employee_id"
+      ],
+      "foreign_keys": [],
+      "sample_data": [
+        {
+          "employee_id": "1",
+          "first_name": "Имя1",
+          "last_name": "Фамилия1",
+          "department": "Логистика",
+          "position": "Директор",
+          "hire_date": "2023-12-11",
+          "salary": "204396.93",
+          "project_id": "34",
+          "performance_score": "81",
+          "experience_years": "2",
+          "education_level": "Бакалавр",
+          "location_id": "17",
+          "manager_id": null,
+          "skills": "Аналитика, SQL, Python",
+          "email": "employee1@rosatom.ru"
+        },
+        {
+          "employee_id": "2",
+          "first_name": "Имя2",
+          "last_name": "Фамилия2",
+          "department": "Закупки",
+          "position": "Оператор",
+          "hire_date": "2015-06-22",
+          "salary": "170638.03",
+          "project_id": "43",
+          "performance_score": "81",
+          "experience_years": "10",
+          "education_level": "Доктор наук",
+          "location_id": "24",
+          "manager_id": null,
+          "skills": "Python, SQL, Безопасность",
+          "email": "employee2@rosatom.ru"
+        },
+        {
+          "employee_id": "3",
+          "first_name": "Имя3",
+          "last_name": "Фамилия3",
+          "department": "Безопасность",
+          "position": "Менеджер",
+          "hire_date": "2015-09-27",
+          "salary": "141498.46",
+          "project_id": "41",
+          "performance_score": "69",
+          "experience_years": "10",
+          "education_level": "Магистр",
+          "location_id": "12",
+          "manager_id": null,
+          "skills": "SQL, Управление, Безопасность",
+          "email": "employee3@rosatom.ru"
+        }
+      ]
+    },
+    "energy_consumption": {
+      "columns": [
+        {
+          "name": "consumption_id",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": true
+        },
+        {
+          "name": "date",
+          "type": "DATE",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "location_id",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "department",
+          "type": "TEXT",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "energy_type",
+          "type": "TEXT",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "consumption_mwh",
+          "type": "REAL",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "cost",
+          "type": "REAL",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "efficiency_rating",
+          "type": "REAL",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "peak_hours",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "notes",
+          "type": "TEXT",
+          "nullable": true,
+          "primary_key": false
+        }
+      ],
+      "primary_keys": [
+        "consumption_id"
+      ],
+      "foreign_keys": [],
+      "sample_data": [
+        {
+          "consumption_id": "1",
+          "date": "2023-01-01",
+          "location_id": "18",
+          "department": "Ядерная энергетика",
+          "energy_type": "Вода",
+          "consumption_mwh": "130.35",
+          "cost": "34777.11",
+          "efficiency_rating": "0.79",
+          "peak_hours": "21",
+          "notes": "Дневное потребление 2023-01-01"
+        },
+        {
+          "consumption_id": "2",
+          "date": "2023-01-02",
+          "location_id": "12",
+          "department": "Научные исследования",
+          "energy_type": "Вода",
+          "consumption_mwh": "653.19",
+          "cost": "76226.28",
+          "efficiency_rating": "0.77",
+          "peak_hours": "9",
+          "notes": "Дневное потребление 2023-01-02"
+        },
+        {
+          "consumption_id": "3",
+          "date": "2023-01-03",
+          "location_id": "21",
+          "department": "Научные исследования",
+          "energy_type": "Электричество",
+          "consumption_mwh": "371.47",
+          "cost": "76270.34",
+          "efficiency_rating": "0.83",
+          "peak_hours": "15",
+          "notes": "Дневное потребление 2023-01-03"
+        }
+      ]
+    },
+    "equipment": {
+      "columns": [
+        {
+          "name": "equipment_id",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": true
+        },
+        {
+          "name": "equipment_name",
+          "type": "TEXT",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "serial_number",
+          "type": "TEXT",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "type",
+          "type": "TEXT",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "subtype",
+          "type": "TEXT",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "manufacturer",
+          "type": "TEXT",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "purchase_date",
+          "type": "DATE",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "warranty_end_date",
+          "type": "DATE",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "status",
+          "type": "TEXT",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "department",
+          "type": "TEXT",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "cost",
+          "type": "REAL",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "location_id",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "maintenance_interval_days",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "last_maintenance_date",
+          "type": "DATE",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "next_maintenance_date",
+          "type": "DATE",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "operational_hours",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": false
+        }
+      ],
+      "primary_keys": [
+        "equipment_id"
+      ],
+      "foreign_keys": [],
+      "sample_data": [
+        {
+          "equipment_id": "1",
+          "equipment_name": "Оборудование 1",
+          "serial_number": "SN-69149-1",
+          "type": "Криогенное оборудование",
+          "subtype": "Вспомогательное",
+          "manufacturer": "Хитачи",
+          "purchase_date": "2017-09-02",
+          "warranty_end_date": "2019-09-02",
+          "status": "Исправно",
+          "department": "Логистика",
+          "cost": "2787100.67",
+          "location_id": "23",
+          "maintenance_interval_days": "347",
+          "last_maintenance_date": "2019-09-28",
+          "next_maintenance_date": "2022-11-04",
+          "operational_hours": "37389"
+        },
+        {
+          "equipment_id": "2",
+          "equipment_name": "Оборудование 2",
+          "serial_number": "SN-13430-2",
+          "type": "Компьютер",
+          "subtype": "Вспомогательное",
+          "manufacturer": "Росатом",
+          "purchase_date": "2019-08-28",
+          "warranty_end_date": "2024-08-26",
+          "status": "Требует ремонта",
+          "department": "Логистика",
+          "cost": "1859327.88",
+          "location_id": "8",
+          "maintenance_interval_days": "61",
+          "last_maintenance_date": "2019-11-17",
+          "next_maintenance_date": "2024-01-03",
+          "operational_hours": "34426"
+        },
+        {
+          "equipment_id": "3",
+          "equipment_name": "Оборудование 3",
+          "serial_number": "SN-68549-3",
+          "type": "Сервер",
+          "subtype": "Основное",
+          "manufacturer": "Тошиба",
+          "purchase_date": "2022-11-23",
+          "warranty_end_date": "2023-11-23",
+          "status": "Исправно",
+          "department": "Закупки",
+          "cost": "2865595.75",
+          "location_id": "24",
+          "maintenance_interval_days": "181",
+          "last_maintenance_date": "2023-05-20",
+          "next_maintenance_date": "2027-10-27",
+          "operational_hours": "34230"
+        }
+      ]
+    },
+    "finance": {
+      "columns": [
+        {
+          "name": "transaction_id",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": true
+        },
+        {
+          "name": "date",
+          "type": "DATE",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "type",
+          "type": "TEXT",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "category",
+          "type": "TEXT",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "amount",
+          "type": "REAL",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "currency",
+          "type": "TEXT",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "department",
+          "type": "TEXT",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "project_id",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "supplier_id",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "payment_method",
+          "type": "TEXT",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "status",
+          "type": "TEXT",
+          "nullable": true,
+          "primary_key": false
+        }
+      ],
+      "primary_keys": [
+        "transaction_id"
+      ],
+      "foreign_keys": [],
+      "sample_data": [
+        {
+          "transaction_id": "1",
+          "date": "2023-01-26",
+          "type": "Расход",
+          "category": "Налоги",
+          "amount": "3166861.92",
+          "currency": "RUB",
+          "description": "Транзакция 1: Перевод",
+          "department": "HR",
+          "project_id": "22",
+          "supplier_id": null,
+          "payment_method": "Наличные",
+          "status": "Завершена"
+        },
+        {
+          "transaction_id": "2",
+          "date": "2023-09-07",
+          "type": "Кредит",
+          "category": "Аренда",
+          "amount": "3747674.93",
+          "currency": "USD",
+          "description": "Транзакция 2: Поступление",
+          "department": "Научные исследования",
+          "project_id": "4",
+          "supplier_id": "43.0",
+          "payment_method": "Карта",
+          "status": "Отклонена"
+        },
+        {
+          "transaction_id": "3",
+          "date": "2022-06-24",
+          "type": "Доход",
+          "category": "Налоги",
+          "amount": "527581.28",
+          "currency": "USD",
+          "description": "Транзакция 3: Оплата",
+          "department": "Логистика",
+          "project_id": "41",
+          "supplier_id": "49.0",
+          "payment_method": "Наличные",
+          "status": "Отклонена"
+        }
+      ]
+    },
+    "locations": {
+      "columns": [
+        {
+          "name": "location_id",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": true
+        },
+        {
+          "name": "location_name",
+          "type": "TEXT",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "location_type",
+          "type": "TEXT",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "city",
+          "type": "TEXT",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "country",
+          "type": "TEXT",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "latitude",
+          "type": "REAL",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "longitude",
+          "type": "REAL",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "manager_id",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "operational_since",
+          "type": "DATE",
+          "nullable": true,
+          "primary_key": false
+        }
+      ],
+      "primary_keys": [
+        "location_id"
+      ],
+      "foreign_keys": [],
+      "sample_data": [
+        {
+          "location_id": "1",
+          "location_name": "Казань Объект 1",
+          "location_type": "АЭС",
+          "city": "Казань",
+          "country": "Россия",
+          "latitude": "49.9706",
+          "longitude": "101.4933",
+          "manager_id": "36",
+          "operational_since": "2020-01-01"
+        },
+        {
+          "location_id": "2",
+          "location_name": "Казань Объект 2",
+          "location_type": "Лаборатория",
+          "city": "Казань",
+          "country": "Россия",
+          "latitude": "57.3802",
+          "longitude": "131.5493",
+          "manager_id": "73",
+          "operational_since": "2005-01-01"
+        },
+        {
+          "location_id": "3",
+          "location_name": "Калининград Объект 3",
+          "location_type": "Склад",
+          "city": "Калининград",
+          "country": "Россия",
+          "latitude": "52.3802",
+          "longitude": "94.2731",
+          "manager_id": "65",
+          "operational_since": "2008-01-01"
+        }
+      ]
+    },
+    "maintenance_logs": {
+      "columns": [
+        {
+          "name": "log_id",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": true
+        },
+        {
+          "name": "equipment_id",
+          "type": "INTEGER",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "maintenance_date",
+          "type": "DATE",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "maintenance_type",
+          "type": "TEXT",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "technician_id",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "duration_hours",
+          "type": "REAL",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "cost",
+          "type": "REAL",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "parts_replaced",
+          "type": "TEXT",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "next_maintenance_date",
+          "type": "DATE",
+          "nullable": true,
+          "primary_key": false
+        }
+      ],
+      "primary_keys": [
+        "log_id"
+      ],
+      "foreign_keys": [],
+      "sample_data": [
+        {
+          "log_id": "1",
+          "equipment_id": "148",
+          "maintenance_date": "2022-03-04",
+          "maintenance_type": "Профилактическое",
+          "technician_id": "367",
+          "duration_hours": "21.0",
+          "cost": "456388.73",
+          "description": "Обслуживание оборудования 1",
+          "parts_replaced": "Деталь 91",
+          "next_maintenance_date": "2023-02-06"
+        },
+        {
+          "log_id": "2",
+          "equipment_id": "86",
+          "maintenance_date": "2023-07-20",
+          "maintenance_type": "Модернизация",
+          "technician_id": "89",
+          "duration_hours": "13.3",
+          "cost": "207698.87",
+          "description": "Обслуживание оборудования 2",
+          "parts_replaced": "Деталь 88",
+          "next_maintenance_date": "2023-12-09"
+        },
+        {
+          "log_id": "3",
+          "equipment_id": "116",
+          "maintenance_date": "2023-01-19",
+          "maintenance_type": "Профилактическое",
+          "technician_id": "166",
+          "duration_hours": "9.2",
+          "cost": "108967.19",
+          "description": "Обслуживание оборудования 3",
+          "parts_replaced": "Деталь 34",
+          "next_maintenance_date": "2023-10-28"
+        }
+      ]
+    },
+    "production": {
+      "columns": [
+        {
+          "name": "production_id",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": true
+        },
+        {
+          "name": "date",
+          "type": "DATE",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "product_name",
+          "type": "TEXT",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "product_category",
+          "type": "TEXT",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "quantity",
+          "type": "INTEGER",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "unit_price",
+          "type": "REAL",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "revenue",
+          "type": "REAL",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "cost",
+          "type": "REAL",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "profit",
+          "type": "REAL",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "department",
+          "type": "TEXT",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "project_id",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "customer_id",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "location_id",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "quality_score",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "production_line",
+          "type": "TEXT",
+          "nullable": true,
+          "primary_key": false
+        }
+      ],
+      "primary_keys": [
+        "production_id"
+      ],
+      "foreign_keys": [],
+      "sample_data": [
+        {
+          "production_id": "1",
+          "date": "2021-01-01",
+          "product_name": "Лицензии",
+          "product_category": "Консалтинг",
+          "quantity": "22",
+          "unit_price": "96124.28",
+          "revenue": "2114734.16",
+          "cost": "774775.72",
+          "profit": "1339958.44",
+          "department": "Закупки",
+          "project_id": "7",
+          "customer_id": "89",
+          "location_id": "7",
+          "quality_score": "79",
+          "production_line": "Линия 1"
+        },
+        {
+          "production_id": "2",
+          "date": "2021-01-01",
+          "product_name": "Обучение",
+          "product_category": "Консалтинг",
+          "quantity": "45",
+          "unit_price": "139869.46",
+          "revenue": "6294125.7",
+          "cost": "3938035.4",
+          "profit": "2356090.3",
+          "department": "Ядерная энергетика",
+          "project_id": "21",
+          "customer_id": "94",
+          "location_id": "13",
+          "quality_score": "78",
+          "production_line": "Линия 6"
+        },
+        {
+          "production_id": "3",
+          "date": "2021-01-01",
+          "product_name": "Обучение",
+          "product_category": "Услуги",
+          "quantity": "19",
+          "unit_price": "273508.03",
+          "revenue": "5196652.57",
+          "cost": "3349611.0",
+          "profit": "1847041.57",
+          "department": "Безопасность",
+          "project_id": "1",
+          "customer_id": "82",
+          "location_id": "15",
+          "quality_score": "82",
+          "production_line": "Линия 9"
+        }
+      ]
+    },
+    "production_old": {
+      "columns": [
+        {
+          "name": "production_id",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": true
+        },
+        {
+          "name": "date",
+          "type": "DATE",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "product_name",
+          "type": "TEXT",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "product_category",
+          "type": "TEXT",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "quantity",
+          "type": "INTEGER",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "unit_price",
+          "type": "REAL",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "revenue",
+          "type": "REAL",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "cost",
+          "type": "REAL",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "profit",
+          "type": "REAL",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "department",
+          "type": "TEXT",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "project_id",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "customer_id",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "location_id",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "quality_score",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "production_line",
+          "type": "TEXT",
+          "nullable": true,
+          "primary_key": false
+        }
+      ],
+      "primary_keys": [
+        "production_id"
+      ],
+      "foreign_keys": [],
+      "sample_data": [
+        {
+          "production_id": "1",
+          "date": "2022-10-24 00:00:00",
+          "product_name": "Изотопы",
+          "product_category": "Консалтинг",
+          "quantity": "927",
+          "unit_price": "85503.4",
+          "revenue": "79261651.8",
+          "cost": "45933203.07",
+          "profit": "33328448.73",
+          "department": "HR",
+          "project_id": "31.0",
+          "customer_id": "68",
+          "location_id": "19",
+          "quality_score": "71",
+          "production_line": "Линия 4"
+        },
+        {
+          "production_id": "2",
+          "date": "2021-05-18 00:00:00",
+          "product_name": "Научные отчеты",
+          "product_category": "Продукция",
+          "quantity": "713",
+          "unit_price": "414819.17",
+          "revenue": "295766068.21",
+          "cost": "171609067.47",
+          "profit": "124157000.74",
+          "department": "Логистика",
+          "project_id": "19.0",
+          "customer_id": "40",
+          "location_id": "7",
+          "quality_score": "85",
+          "production_line": "Линия 5"
+        },
+        {
+          "production_id": "3",
+          "date": "2021-09-06 00:00:00",
+          "product_name": "Консультации",
+          "product_category": "Консалтинг",
+          "quantity": "996",
+          "unit_price": "76550.57",
+          "revenue": "76244367.72",
+          "cost": "26205327.05",
+          "profit": "50039040.67",
+          "department": "IT",
+          "project_id": null,
+          "customer_id": "99",
+          "location_id": "15",
+          "quality_score": "71",
+          "production_line": "Линия 9"
+        }
+      ]
+    },
+    "projects": {
+      "columns": [
+        {
+          "name": "project_id",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": true
+        },
+        {
+          "name": "project_name",
+          "type": "TEXT",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "project_code",
+          "type": "TEXT",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "start_date",
+          "type": "DATE",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "end_date",
+          "type": "DATE",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "budget",
+          "type": "REAL",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "actual_cost",
+          "type": "REAL",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "status",
+          "type": "TEXT",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "manager_id",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "department",
+          "type": "TEXT",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "priority",
+          "type": "TEXT",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "completion_percentage",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "client_id",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "location_id",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": false
+        }
+      ],
+      "primary_keys": [
+        "project_id"
+      ],
+      "foreign_keys": [],
+      "sample_data": [
+        {
+          "project_id": "1",
+          "project_name": "Ядерная медицина 1",
+          "project_code": "PROJ-0001",
+          "start_date": "2022-11-16",
+          "end_date": "2025-07-06",
+          "budget": "232775934.18",
+          "actual_cost": "435888007.12",
+          "status": "Планирование",
+          "manager_id": "418",
+          "department": "Ядерная энергетика",
+          "priority": "Низкий",
+          "risk_level": "Средний",
+          "completion_percentage": "25",
+          "client_id": "14",
+          "location_id": "9"
+        },
+        {
+          "project_id": "2",
+          "project_name": "Цифровизация 2",
+          "project_code": "PROJ-0002",
+          "start_date": "2018-02-17",
+          "end_date": "2018-08-16",
+          "budget": "46100873.84",
+          "actual_cost": "40532193.71",
+          "status": "Планирование",
+          "manager_id": "367",
+          "department": "Безопасность",
+          "priority": "Высокий",
+          "risk_level": "Высокий",
+          "completion_percentage": "72",
+          "client_id": "44",
+          "location_id": "15"
+        },
+        {
+          "project_id": "3",
+          "project_name": "БРЕСТ-ОД-300 3",
+          "project_code": "PROJ-0003",
+          "start_date": "2023-05-26",
+          "end_date": "2025-02-13",
+          "budget": "462355432.22",
+          "actual_cost": "318259470.43",
+          "status": "На проверке",
+          "manager_id": "91",
+          "department": "IT",
+          "priority": "Низкий",
+          "risk_level": "Низкий",
+          "completion_percentage": "35",
+          "client_id": "90",
+          "location_id": "23"
+        }
+      ]
+    },
+    "safety_incidents": {
+      "columns": [
+        {
+          "name": "incident_id",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": true
+        },
+        {
+          "name": "date",
+          "type": "DATE",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "time",
+          "type": "TIME",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "category",
+          "type": "TEXT",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "severity",
+          "type": "TEXT",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "department",
+          "type": "TEXT",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "location_id",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "equipment_id",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "employee_id",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "resolved",
+          "type": "BOOLEAN",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "resolution_date",
+          "type": "DATE",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "resolution_time_hours",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "investigation_report",
+          "type": "TEXT",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "preventive_measures",
+          "type": "TEXT",
+          "nullable": true,
+          "primary_key": false
+        }
+      ],
+      "primary_keys": [
+        "incident_id"
+      ],
+      "foreign_keys": [],
+      "sample_data": [
+        {
+          "incident_id": "1",
+          "date": "2022-05-07",
+          "time": "08:14",
+          "description": "Инцидент 1: Кибератака",
+          "category": "Природный",
+          "severity": "Критический",
+          "department": "HR",
+          "location_id": "13",
+          "equipment_id": "140.0",
+          "employee_id": "190.0",
+          "resolved": "0",
+          "resolution_date": null,
+          "resolution_time_hours": null,
+          "investigation_report": "Отчет по расследованию 1",
+          "preventive_measures": "Меры профилактики 1"
+        },
+        {
+          "incident_id": "2",
+          "date": "2022-01-20",
+          "time": "22:49",
+          "description": "Инцидент 2: Утечка данных",
+          "category": "Природный",
+          "severity": "Низкий",
+          "department": "Ядерная энергетика",
+          "location_id": "15",
+          "equipment_id": "146.0",
+          "employee_id": "170.0",
+          "resolved": "0",
+          "resolution_date": null,
+          "resolution_time_hours": null,
+          "investigation_report": "Отчет по расследованию 2",
+          "preventive_measures": "Меры профилактики 2"
+        },
+        {
+          "incident_id": "3",
+          "date": "2023-12-11",
+          "time": "04:42",
+          "description": "Инцидент 3: Нарушение процедур",
+          "category": "Кибербезопасность",
+          "severity": "Низкий",
+          "department": "Финансы",
+          "location_id": "22",
+          "equipment_id": null,
+          "employee_id": null,
+          "resolved": "0",
+          "resolution_date": null,
+          "resolution_time_hours": null,
+          "investigation_report": "Отчет по расследованию 3",
+          "preventive_measures": "Меры профилактики 3"
+        }
+      ]
+    },
+    "suppliers": {
+      "columns": [
+        {
+          "name": "supplier_id",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": true
+        },
+        {
+          "name": "supplier_name",
+          "type": "TEXT",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "contact_person",
+          "type": "TEXT",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "phone",
+          "type": "TEXT",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "email",
+          "type": "TEXT",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "category",
+          "type": "TEXT",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "rating",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "contract_start_date",
+          "type": "DATE",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "contract_end_date",
+          "type": "DATE",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "total_contract_amount",
+          "type": "REAL",
+          "nullable": true,
+          "primary_key": false
+        }
+      ],
+      "primary_keys": [
+        "supplier_id"
+      ],
+      "foreign_keys": [],
+      "sample_data": [
+        {
+          "supplier_id": "1",
+          "supplier_name": "Роснефть 1",
+          "contact_person": "Контактное лицо 1",
+          "phone": "+79372297464",
+          "email": "supplier1@example.com",
+          "category": "Услуги",
+          "rating": "10",
+          "contract_start_date": "2022-07-28",
+          "contract_end_date": "2027-04-03",
+          "total_contract_amount": "35771347.0"
+        },
+        {
+          "supplier_id": "2",
+          "supplier_name": "Роснефть 2",
+          "contact_person": "Контактное лицо 2",
+          "phone": "+79701726929",
+          "email": "supplier2@example.com",
+          "category": "Сырье",
+          "rating": "6",
+          "contract_start_date": "2022-06-02",
+          "contract_end_date": "2027-01-21",
+          "total_contract_amount": "25190042.0"
+        },
+        {
+          "supplier_id": "3",
+          "supplier_name": "Роснефть 3",
+          "contact_person": "Контактное лицо 3",
+          "phone": "+79582280776",
+          "email": "supplier3@example.com",
+          "category": "Консалтинг",
+          "rating": "7",
+          "contract_start_date": "2022-04-27",
+          "contract_end_date": "2025-10-14",
+          "total_contract_amount": "10175476.0"
+        }
+      ]
+    },
+    "tasks": {
+      "columns": [
+        {
+          "name": "task_id",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": true
+        },
+        {
+          "name": "task_name",
+          "type": "TEXT",
+          "nullable": false,
+          "primary_key": false
+        },
+        {
+          "name": "project_id",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "assigned_to",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "assigned_by",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "start_date",
+          "type": "DATE",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "due_date",
+          "type": "DATE",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "completed_date",
+          "type": "DATE",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "status",
+          "type": "TEXT",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "priority",
+          "type": "TEXT",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "estimated_hours",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "actual_hours",
+          "type": "INTEGER",
+          "nullable": true,
+          "primary_key": false
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "nullable": true,
+          "primary_key": false
+        }
+      ],
+      "primary_keys": [
+        "task_id"
+      ],
+      "foreign_keys": [],
+      "sample_data": [
+        {
+          "task_id": "1",
+          "task_name": "Задача 1",
+          "project_id": "33",
+          "assigned_to": "427",
+          "assigned_by": "149",
+          "start_date": "2023-03-17",
+          "due_date": "2023-05-16",
+          "completed_date": null,
+          "status": "В работе",
+          "priority": "Низкий",
+          "estimated_hours": "10",
+          "actual_hours": null,
+          "description": "Описание задачи 1"
+        },
+        {
+          "task_id": "2",
+          "task_name": "Задача 2",
+          "project_id": "45",
+          "assigned_to": "258",
+          "assigned_by": "120",
+          "start_date": "2023-04-08",
+          "due_date": "2023-06-06",
+          "completed_date": "2023-05-21",
+          "status": "Завершена",
+          "priority": "Высокий",
+          "estimated_hours": "64",
+          "actual_hours": "95.0",
+          "description": "Описание задачи 2"
+        },
+        {
+          "task_id": "3",
+          "task_name": "Задача 3",
+          "project_id": "5",
+          "assigned_to": "306",
+          "assigned_by": "138",
+          "start_date": "2023-10-11",
+          "due_date": "2023-11-25",
+          "completed_date": null,
+          "status": "Отложена",
+          "priority": "Низкий",
+          "estimated_hours": "1",
+          "actual_hours": null,
+          "description": "Описание задачи 3"
+        }
+      ]
+    }
+  },
+  "relationships": [],
+  "metadata": {}
+}

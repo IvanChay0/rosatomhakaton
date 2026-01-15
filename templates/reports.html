@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отчеты - Rosatom BI System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <h1>Rosatom BI Reports</h1>
+                <p>Генерация и управление отчетами</p>
+            </div>
+            <nav class="nav">
+                <a href="/" class="nav-link">Главная</a>
+                <a href="/dashboard" class="nav-link">Дашборд</a>
+                <a href="/reports" class="nav-link active">Отчеты</a>
+            </nav>
+        </header>
+
+        <main class="reports-content">
+            <!-- Панель генерации отчетов -->
+            <div class="reports-generator">
+                <h2>Генератор отчетов</h2>
+                <div class="generator-panel">
+                    <div class="report-type-selector">
+                        <h4>Выберите тип отчета:</h4>
+                        <input type="hidden" id="reportType" value="summary">
+                        <div class="report-types">
+                            <div class="report-type-card" onclick="selectReportType('summary')">
+                                <div class="report-icon">📊</div>
+                                <h5>Общий отчет</h5>
+                                <p>Сводная информация по всем показателям</p>
+                            </div>
+                            
+                            <div class="report-type-card" onclick="selectReportType('performance')">
+                                <div class="report-icon">👥</div>
+                                <h5>Эффективность</h5>
+                                <p>Анализ производительности сотрудников</p>
+                            </div>
+                            
+                            <div class="report-type-card" onclick="selectReportType('financial')">
+                                <div class="report-icon">💰</div>
+                                <h5>Финансовый</h5>
+                                <p>Финансовые показатели и бюджет</p>
+                            </div>
+                            
+                            <div class="report-type-card" onclick="selectReportType('safety')">
+                                <div class="report-icon">🛡️</div>
+                                <h5>Безопасность</h5>
+                                <p>Отчет по инцидентам безопасности</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="report-parameters">
+                        <h4>Параметры отчета:</h4>
+                        <div class="parameter-group">
+                            <label for="reportPeriod">Период отчета:</label>
+                            <select id="reportPeriod" class="parameter-select">
+                                <option value="month">Месячный</option>
+                                <option value="quarter">Квартальный</option>
+                                <option value="year">Годовой</option>
+                                <option value="custom">Произвольный</option>
+                            </select>
+                        </div>
+                        
+                        <div class="parameter-group">
+                            <label for="reportFormat">Формат:</label>
+                            <select id="reportFormat" class="parameter-select">
+                                <option value="html">HTML</option>
+                                <option value="json">JSON</option>
+                                <option value="pdf">PDF (экспорт)</option>
+                                <option value="excel">Excel (экспорт)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="parameter-group">
+                            <label for="reportDepartments">Отделы:</label>
+                            <select id="reportDepartments" class="parameter-select" multiple>
+                                <option value="all" selected>Все отделы</option>
+                                <option value="Ядерная энергетика">Ядерная энергетика</option>
+                                <option value="Научные исследования">Научные исследования</option>
+                                <option value="Безопасность">Безопасность</option>
+                                <option value="Логистика">Логистика</option>
+                            </select>
+                        </div>
+                        
+                        <div class="parameter-group">
+                            <label>
+                                <input type="checkbox" id="includeCharts" checked>
+                                Включить графики
+                            </label>
+                            <label>
+                                <input type="checkbox" id="includeAI" checked>
+                                Включить AI-анализ
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="report-actions">
+                        <button class="btn btn-primary" onclick="generateReport()">
+                            🚀 Сгенерировать отчет
+                        </button>
+                        <button class="btn btn-outline" onclick="scheduleReport()">
+                            ⏰ Запланировать
+                        </button>
+                        <button class="btn btn-outline" onclick="saveTemplate()">
+                            💾 Сохранить шаблон
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- История отчетов -->
+            <div class="reports-history">
+                <h3>История отчетов</h3>
+                <div class="history-controls">
+                    <input type="text" id="searchReports" placeholder="Поиск по отчетам..." 
+                           onkeyup="searchReports()">
+                    <button class="btn btn-small" onclick="refreshHistory()">Обновить</button>
+                </div>
+                
+                <div class="reports-list" id="reportsList">
+                    <!-- Отчеты будут загружены здесь -->
+                    <div class="empty-reports">
+                        <p>Сгенерируйте первый отчет, чтобы увидеть его здесь</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Предпросмотр отчета -->
+            <div class="report-preview">
+                <h3>Предпросмотр отчета</h3>
+                <div class="preview-container" id="reportPreview">
+                    <div class="preview-placeholder">
+                        <div class="preview-icon">📄</div>
+                        <h4>Предпросмотр отчета</h4>
+                        <p>Сгенерируйте отчет, чтобы увидеть его здесь</p>
+                    </div>
+                </div>
+                
+                <div class="preview-actions">
+                    <button class="btn btn-primary" onclick="exportReport()">Экспортировать</button>
+                    <button class="btn btn-outline" onclick="printReport()">Печать</button>
+                    <button class="btn btn-outline" onclick="shareReport()">Поделиться</button>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>© 2024 Rosatom BI Reports. Все отчеты защищены.</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/reports.js') }}"></script>
+</body>
+</html>

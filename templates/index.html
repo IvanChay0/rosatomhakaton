@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rosatom BI System - Интеллектуальная аналитика</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Заголовок -->
+        <header class="header">
+            <div class="logo">
+                <h1>Rosatom BI System</h1>
+                <p>Интеллектуальная система бизнес-аналитики на основе ИИ</p>
+            </div>
+            <nav class="nav">
+                <a href="/" class="nav-link active">Главная</a>
+                <a href="/dashboard" class="nav-link">Дашборд</a>
+                <a href="/reports" class="nav-link">Отчеты</a>
+            </nav>
+        </header>
+
+        <!-- Основной контент -->
+        <main class="main-content">
+            <div class="hero-section">
+                <h2>Задавайте вопросы на естественном языке</h2>
+                <p class="subtitle">Система автоматически генерирует SQL-запросы, выполняет их и предоставляет аналитику</p>
+                
+                <!-- Примеры запросов -->
+                <div class="examples">
+                    <h3>Примеры запросов:</h3>
+                    <div class="examples-grid">
+                        <div class="example-card" onclick="setExample(this)">
+                            <div class="example-icon">📊</div>
+                            <p>"Покажи топ-5 товаров по продажам за последний месяц"</p>
+                        </div>
+                        <div class="example-card" onclick="setExample(this)">
+                            <div class="example-icon">👥</div>
+                            <p>"Сколько сотрудников в каждом отделе?"</p>
+                        </div>
+                        <div class="example-card" onclick="setExample(this)">
+                            <div class="example-icon">💰</div>
+                            <p>"Какая общая выручка по проектам?"</p>
+                        </div>
+                        <div class="example-card" onclick="setExample(this)">
+                            <div class="example-icon">📈</div>
+                            <p>"Покажи динамику продаж за последний год"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Чат интерфейс -->
+            <div class="chat-container">
+                <div class="chat-header">
+                    <h3>Чат с данными</h3>
+                    <button class="btn btn-secondary" onclick="clearChat()">Очистить чат</button>
+                </div>
+                
+                <div class="chat-history" id="chatHistory">
+                    <!-- Сообщения будут добавляться здесь -->
+                    <div class="welcome-message">
+                        <p>👋 Привет! Я ваш AI-ассистент по анализу данных. Задайте вопрос о ваших данных, и я помогу вам получить нужную информацию.</p>
+                    </div>
+                </div>
+                
+                <div class="chat-input-container">
+                    <textarea 
+                        id="userInput" 
+                        placeholder="Напишите ваш запрос на естественном языке, например: 'Покажи топ-5 товаров по продажам за последний месяц'"
+                        rows="3"
+                        onkeydown="handleKeyPress(event)"
+                    ></textarea>
+                    <button class="btn btn-primary" onclick="sendMessage()">Отправить</button>
+                </div>
+                
+                <div class="chat-actions">
+                    <button class="btn btn-outline" onclick="showVisualizationOptions()">
+                        📊 Выбрать тип визуализации
+                    </button>
+                    <button class="btn btn-outline" onclick="generateReport()">
+                        📄 Сгенерировать отчет
+                    </button>
+                    <button class="btn btn-outline" onclick="showSchema()">
+                        🗃️ Показать схему БД
+                    </button>
+                </div>
+            </div>
+
+            <!-- Результаты -->
+            <div class="results-container">
+                <div class="results-tabs">
+                    <button class="tab-btn active" onclick="showTab('visualization')">Визуализация</button>
+                    <button class="tab-btn" onclick="showTab('data')">Данные</button>
+                    <button class="tab-btn" onclick="showTab('analysis')">Анализ</button>
+                    <button class="tab-btn" onclick="showTab('sql')">SQL Запрос</button>
+                </div>
+                
+                <div class="tab-content active" id="visualizationTab">
+                    <div id="visualizationContainer">
+                        <!-- Визуализация будет отображаться здесь -->
+                        <div class="empty-state">
+                            <div class="empty-icon">📊</div>
+                            <h4>Здесь появится визуализация</h4>
+                            <p>Задайте вопрос, чтобы увидеть графики и диаграммы</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="dataTab">
+                    <div id="dataContainer">
+                        <!-- Таблица данных будет отображаться здесь -->
+                        <div class="empty-state">
+                            <div class="empty-icon">📋</div>
+                            <h4>Здесь появятся данные</h4>
+                            <p>Результаты запроса будут отображены в виде таблицы</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="analysisTab">
+                    <div id="analysisContainer">
+                        <!-- Текстовый анализ будет отображаться здесь -->
+                        <div class="empty-state">
+                            <div class="empty-icon">📝</div>
+                            <h4>Здесь появится анализ</h4>
+                            <p>AI-анализ данных будет представлен здесь</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="sqlTab">
+                    <div id="sqlContainer">
+                        <!-- SQL запрос будет отображаться здесь -->
+                        <div class="empty-state">
+                            <div class="empty-icon">💻</div>
+                            <h4>Здесь появится SQL запрос</h4>
+                            <p>Сгенерированный SQL запрос будет показан здесь</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Модальное окно для выбора визуализации -->
+            <div id="vizModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <h3>Выберите тип визуализации</h3>
+                    <div class="viz-options">
+                        <div class="viz-option" onclick="selectVizType('table')">
+                            <div class="viz-icon">📋</div>
+                            <span>Таблица</span>
+                        </div>
+                        <div class="viz-option" onclick="selectVizType('bar')">
+                            <div class="viz-icon">📊</div>
+                            <span>Столбчатая</span>
+                        </div>
+                        <div class="viz-option" onclick="selectVizType('line')">
+                            <div class="viz-icon">📈</div>
+                            <span>Линейный график</span>
+                        </div>
+                        <div class="viz-option" onclick="selectVizType('pie')">
+                            <div class="viz-icon">🥧</div>
+                            <span>Круговая</span>
+                        </div>
+                        <div class="viz-option" onclick="selectVizType('histogram')">
+                            <div class="viz-icon">📊</div>
+                            <span>Гистограмма</span>
+                        </div>
+                        <div class="viz-option" onclick="selectVizType('scatter')">
+                            <div class="viz-icon">⚫</div>
+                            <span>Точечная</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Футер -->
+        <footer class="footer">
+            <p>© 2024 Rosatom BI System. Интеллектуальная аналитическая платформа.</p>
+            <p class="footer-info">Система автоматически генерирует SQL-запросы на основе естественного языка</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
